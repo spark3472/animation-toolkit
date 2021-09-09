@@ -9,9 +9,7 @@ The above image shows how there is one circle on top of another, which the bigge
 ## Sphere3D
 
 TODO: Replace this text with results
-x-special/nautilus-clipboard
-copy
-file:///home/apark/Desktop/Sphere3D.gif
+![Alternate text here](/home/apark/Desktop/Sphere3D.gif)
 
 * images, gifs, videos
 * brief description of what each image/gif/video shows
