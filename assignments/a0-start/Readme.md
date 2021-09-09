@@ -7,9 +7,7 @@
 The above image shows how there is one circle on top of another, which the bigger, red circle behind having a Z of -100 to put it in the "background" of the smaller, green circle. 
 
 ## Sphere3D
-
-TODO: Replace this text with results
-![Sphere Gif](file:///home/apark/Desktop/Sphere3D.gif)
+![Sphere3D](https://user-images.githubusercontent.com/55250326/132748609-e74fe549-6bd3-45e9-9a6d-b862d0a66bca.gif)
 
 * images, gifs, videos
 * brief description of what each image/gif/video shows
