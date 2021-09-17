@@ -8,7 +8,7 @@ GIF:
 
 
 
-![image](https://user-images.githubusercontent.com/55250326/133846962-9f2c3dfe-4726-4313-bcd4-44722c702d9f.png)
+https://media3.giphy.com/media/sMdEK6uerGCaPruAzy/giphy.gif?cid=790b76112ebb9b9f36eabddcf7a64d26b00e53824df0613f&rid=giphy.gif&ct=g
 
 
 
