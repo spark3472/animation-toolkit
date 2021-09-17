@@ -1,6 +1,6 @@
 # Readme
 
-<h1>Question 1:</h1>
+<h2>Question 1:</h2>
 
 
 
@@ -14,12 +14,12 @@ GIF:
 Video: 
 https://user-images.githubusercontent.com/55250326/133846983-d876d084-daac-4844-acab-555a6d16c198.mov
 
-Question 2:
+<h2>Question 2:</h2>
 
 Video:
 https://user-images.githubusercontent.com/55250326/133847508-83c06884-95b3-4cdf-8fc5-ccd2e22e3ebe.mov
 
-Question 3:
+<h2>Question 3:</h2>
 
 
 
@@ -33,7 +33,7 @@ GIF:
 Video:
 https://user-images.githubusercontent.com/55250326/133847786-3ba6f249-fac8-4e82-a444-33b5a43f7f96.mov
 
-Question 4:
+<h2>Question 4:</h2>
 
 
 GIF: 
