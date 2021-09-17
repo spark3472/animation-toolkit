@@ -3,12 +3,7 @@
 Problem 1:
 
 
-GIF: 
-
-
-
-
-https://media3.giphy.com/media/sMdEK6uerGCaPruAzy/giphy.gif?cid=790b76112ebb9b9f36eabddcf7a64d26b00e53824df0613f&rid=giphy.gif&ct=g
+GIF: https://media3.giphy.com/media/sMdEK6uerGCaPruAzy/giphy.gif?cid=790b76112ebb9b9f36eabddcf7a64d26b00e53824df0613f&rid=giphy.gif&ct=g
 
 
 
