@@ -6,9 +6,6 @@
 The eyes program uses the sine function in order to oscillate between two points, causing the black circles to move left and right between
 the ends of the white circles horizontally, making it look like eyes moving back and forth.
 
-GIF: 
-
-
 
 ![giphy-1](https://user-images.githubusercontent.com/55250326/133848686-1e1429a4-037c-43ba-9aa4-4f20e8c99368.gif)
 
@@ -28,9 +25,6 @@ https://user-images.githubusercontent.com/55250326/133847508-83c06884-95b3-4cdf-
 <h3>Description:</h3>
 Small circles are positioned randomly. Using their positions, their respective random colors are also calculated and they keep wrapping around the screen.
 
-GIF:
-
-
 
 ![giphy-2](https://user-images.githubusercontent.com/55250326/133848713-04a3f20a-484a-42c0-8a4c-b94328a9e156.gif)
 
@@ -43,8 +37,6 @@ https://user-images.githubusercontent.com/55250326/133847786-3ba6f249-fac8-4e82-
 <h3>Description:</h3>
 Ten concentric circles are around the center of the screen. Each concentric circle rotates around this center in alternate directions.
 
-GIF: 
-
 ![giphy-3](https://user-images.githubusercontent.com/55250326/133848749-f6b2e2bb-59c2-447a-a889-a97ac2946290.gif)
 
 
@@ -55,7 +47,8 @@ Question 5:
 
 <h3>Description:</h3>
 This animation was incredibly interesting to me because, well, I accidentally made it while making mistakes in calculating concentric circles, but the illusion it gives of 3D is fascinating as it reminds me of how other games seem to have 3D features but work on a 2D scale (like LoL).
-GIF:
+
+
 
 ![giphy](https://user-images.githubusercontent.com/55250326/133848558-b888c112-39b3-4724-a16c-e8441044c4c8.gif)
 
