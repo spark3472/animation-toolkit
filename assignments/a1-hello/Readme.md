@@ -3,7 +3,8 @@
 Question 1:
 
 GIF: 
-https://media3.giphy.com/media/sMdEK6uerGCaPruAzy/giphy.gif?cid=790b76112ebb9b9f36eabddcf7a64d26b00e53824df0613f&rid=giphy.gif&ct=g
+![giphy-1](https://user-images.githubusercontent.com/55250326/133848686-1e1429a4-037c-43ba-9aa4-4f20e8c99368.gif)
+
 
 Video: 
 https://user-images.githubusercontent.com/55250326/133846983-d876d084-daac-4844-acab-555a6d16c198.mov
@@ -16,14 +17,18 @@ https://user-images.githubusercontent.com/55250326/133847508-83c06884-95b3-4cdf-
 Question 3:
 
 GIF:
-https://media2.giphy.com/media/8KhdkXu8S4zHXppM4A/giphy.gif?cid=790b7611e882d24ba7378deb6555bdad9baf29599df5968f&rid=giphy.gif&ct=g
+
+![giphy-2](https://user-images.githubusercontent.com/55250326/133848713-04a3f20a-484a-42c0-8a4c-b94328a9e156.gif)
+
 
 Video:
 https://user-images.githubusercontent.com/55250326/133847786-3ba6f249-fac8-4e82-a444-33b5a43f7f96.mov
 
 Question 4:
 GIF: 
-https://media3.giphy.com/media/8FgsQcpqqqztojGhwv/giphy.gif?cid=790b761199ca1b30da24f53d1939df9cb011c3cbff36f0cd&rid=giphy.gif&ct=g
+
+![giphy-3](https://user-images.githubusercontent.com/55250326/133848749-f6b2e2bb-59c2-447a-a889-a97ac2946290.gif)
+
 
 Video:
 https://user-images.githubusercontent.com/55250326/133848143-c7c3eb75-231f-4868-8a63-75fc6844ab2e.mov
