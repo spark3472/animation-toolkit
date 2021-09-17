@@ -1,6 +1,8 @@
 # Readme
 
 Problem 1:
+
+
 GIF: 
 
 
