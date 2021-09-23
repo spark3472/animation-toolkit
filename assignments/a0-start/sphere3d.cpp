@@ -26,7 +26,6 @@ class Sphere3D : public atkui::Framework {
   void keyUp(int key, int mods) {
     if (key == GLFW_KEY_SPACE) {
       vel = agl::randomUnitVector();
-      //currentPos = currentPos + vel * dt();
     }else if (key == GLFW_KEY_R) {
       currentPos = vec3(0);
       vel = vec3(0);
