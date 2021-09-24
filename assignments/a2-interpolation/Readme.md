@@ -1,5 +1,4 @@
 # Readme
-# Readme
 
 <h2>Gradient:</h2>
 
