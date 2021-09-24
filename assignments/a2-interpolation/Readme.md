@@ -39,13 +39,15 @@ https://user-images.githubusercontent.com/55250326/134742060-2ed47ec1-1b87-4604-
 Video:
 https://user-images.githubusercontent.com/55250326/133848143-c7c3eb75-231f-4868-8a63-75fc6844ab2e.mov
 
-Question 5:
+<h2>Random Color Palette</h2>
 
 <h3>Description:</h3>
-This animation was incredibly interesting to me because, well, I accidentally made it while making mistakes in calculating concentric circles, but the illusion it gives of 3D is fascinating as it reminds me of how other games seem to have 3D features but work on a 2D scale (like LoL).
+Gives a random palette of three colors which are gradients or the control colors of the whole cube.
 
 
 
-![giphy](https://user-images.githubusercontent.com/55250326/133848558-b888c112-39b3-4724-a16c-e8441044c4c8.gif)
+https://user-images.githubusercontent.com/55250326/134742305-a1d26989-93f2-441d-a202-8c2e6ada9eae.mov
+
+
 
 
