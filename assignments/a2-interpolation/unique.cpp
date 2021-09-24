@@ -35,18 +35,30 @@ class Unique : public atkui::Framework {
       cubes[i].colorx1 = colorSW * (1-(float)cubes[i].x/width()) + colorSE * (float)cubes[i].x/width();
       cubes[i].color = cubes[i].colorx1 * (1-(float)cubes[i].y/height()) + cubes[i].colorx0 * (float)cubes[i].y/height();
     }
-    setColor(vec3(1, 0, 0));
-    for (int i = 0; i < 100; i++){
-      setColor(cubes[i].color);
-      drawCube(cubes[i].position, vec3(50));
+    i  = fmod(elapsedTime(), 1.0f);
+    if (i > 0.981f){
+      randnum1 = rand()%100;
+      randnum2 = rand()%100;
+      randnum3 = rand()%100;
     }
+    setColor(cubes[randnum1].color);
+    drawCube(cubes[randnum1].position, vec3(50));
+    setColor(cubes[randnum2].color);
+    drawCube(cubes[randnum2].position, vec3(50));
+    setColor(cubes[randnum3].color);
+    drawCube(cubes[randnum3].position, vec3(50));
+    setColor(vec3(1, 0, 0));
   }
   
   cube cubes[100];
-  vec3 colorNW = vec3(1, 1, 0);
-  vec3 colorNE = vec3(0, 1, 1);
-  vec3 colorSW = vec3(1, 0, 0);
-  vec3 colorSE = vec3(1, 0, 1);
+  float i;
+  int randnum1;
+  int randnum2;
+  int randnum3;
+  vec3 colorNW = vec3(1, 0, 0);
+  vec3 colorNE = vec3(0, 0, 1);
+  vec3 colorSW = vec3(0);
+  vec3 colorSE = vec3(1);
 };
 int main(int argc, char** argv) {
   Unique viewer;
