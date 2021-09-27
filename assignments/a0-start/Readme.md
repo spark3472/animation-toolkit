@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 # Readme
@@ -15,3 +16,20 @@ The above image shows how there is one circle on top of another, which the bigge
 https://user-images.githubusercontent.com/55250326/132749232-9c18a829-3550-4b8c-b0b6-7dfdf3e6f75c.mov
  
 Sphere starts at the origin and moves in random direction upon pressing SPACEBAR and resets to the origin upon pressing R.
+=======
+# Readme
+
+## Sphere2D
+
+TODO: Replace this text with results
+
+* images, gifs, videos
+* brief description of what each image/gif/video shows
+
+## Sphere3D
+
+TODO: Replace this text with results
+
+* images, gifs, videos
+* brief description of what each image/gif/video shows
+>>>>>>> upstream/main

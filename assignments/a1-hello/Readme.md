@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Readme
 
 <h2>Question 1:</h2>
@@ -55,3 +56,12 @@ This animation was incredibly interesting to me because, well, I accidentally ma
 
 
 
+=======
+# Readme
+
+TODO: Replace this text with
+
+* images, gifs, videos
+* brief description of what each image/gif/video shows
+
+>>>>>>> upstream/main
