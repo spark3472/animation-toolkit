@@ -35,3 +35,4 @@ class Example : public atkui::Framework {
 int main(int argc, char** argv) {
   Example example;
   example.run();
+}
