@@ -15,7 +15,7 @@ class InterpolatorHermite : public Interpolator
 public:
     InterpolatorHermite() : Interpolator("Hermite"), mClampDir(glm::vec3(1,0,0)) {}
 
-    virtual glm::vec3 interpolate(int segment, double u) const {
+    virtual glm::vec3 interpolate(int segment, float u) const {
        // todo: your code here
        return glm::vec3(0);
     }

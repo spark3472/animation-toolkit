@@ -13,13 +13,12 @@ class InterpolatorLinear : public Interpolator
 {
 public:
     InterpolatorLinear() : Interpolator("Linear") {}
-    virtual glm::vec3 interpolate(int segment, double u) const {
-       // todo: your code here
-       return glm::vec3(0);
+    virtual glm::vec3 interpolate(int segment, float u) const {
+      return (getControlPoint(segment) * (1.0f-u) + getControlPoint(segment+1) * u); 
     }
 
     virtual void computeControlPoints(const std::vector<glm::vec3>& keys) {
-       // todo: your code here
+       mCtrlPoints = keys;
     }
 };
 

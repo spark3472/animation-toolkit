@@ -14,7 +14,7 @@ class InterpolatorCatmullRom : public Interpolator
 public:
     InterpolatorCatmullRom() : Interpolator("Catmull-Rom") {}
 
-    virtual glm::vec3 interpolate(int segment, double u) const {
+    virtual glm::vec3 interpolate(int segment, float u) const {
        // todo: your code here
        // see: interpolator.h and writeup for details
        return glm::vec3(0);

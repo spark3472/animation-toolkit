@@ -21,7 +21,7 @@ public:
    // Return an interpolated value for the given segment and time
    // @param segment: ID of the segment to interpolate. First segment has ID = 0
    // @param u: normalized time. u is in the range [0,1]
-   virtual glm::vec3 interpolate(int segment, double time) const = 0;
+   virtual glm::vec3 interpolate(int segment, float time) const = 0;
 
    // Recompute control points based on the given keys
    virtual void computeControlPoints(const std::vector<glm::vec3>& keys) = 0;
