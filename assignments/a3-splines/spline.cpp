@@ -3,7 +3,7 @@
 #include "math.h"
 #include "interpolator_linear.h"
 #include "interpolator_catmullrom.h"
-
+#include "interpolator_hermite.h"
 // global interpolator to use as default
 static InterpolatorLinear gDefaultInterpolator; 
 
@@ -102,6 +102,13 @@ glm::vec3 Spline::getValue(float t) const {
     mInterpolator->computeControlPoints(mKeys);
     mDirty = false;
   }
+  
+
+  // todo: your code here
+  // compute the segment containing t
+  // compute the value [0, 1] along the segment for interpolation
+
+
   float duration = getDuration();
   std::string type = getInterpolationType();
   if (t < 0){
@@ -111,20 +118,28 @@ glm::vec3 Spline::getValue(float t) const {
   }
   InterpolatorLinear interp;
   InterpolatorCatmullRom catmullrom;
+  InterpolatorHermite hermite;
   if (type == "Linear" && getNumKeys() > 0){
+    float u = fmod(t, 1.0f);
+    int segment = getNumSegments() - 1;
     interp.computeControlPoints(mKeys);
-    return interp.interpolate(0, t);
+    return interp.interpolate(segment, u);
   }
   
   if(type == "Catmull-Rom"){
     catmullrom.computeControlPoints(mKeys);
-    return catmullrom.interpolate(1, 1);
+    float u = fmod(t, 1.0f);
+    int segment = (int)t - (int)u;
+    return catmullrom.interpolate(segment, u);
   }
-  
 
-  // todo: your code here
-  // compute the segment containing t
-  // compute the value [0, 1] along the segment for interpolation
+  if(type == "Catmull-Rom"){
+    hermite.computeControlPoints(mKeys);
+    float u = fmod(t, 1.0f);
+    int segment = (int)t - (int)u;
+    return hermite.interpolate(segment, u);
+  }
+
   return glm::vec3(0); 
 }
 

@@ -101,4 +101,3 @@ int main() {
    std::cout << "Duration: " << duration << std::endl;
    std::cout << "getValue(1.5): " << to_string(test) << std::endl;
 }
-

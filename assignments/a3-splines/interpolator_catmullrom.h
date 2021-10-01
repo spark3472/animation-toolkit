@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "interpolator.h"
+#include <iostream>
 
 //--------------------------------
 // Catmull-Rom 
@@ -25,7 +26,7 @@ public:
     virtual void computeControlPoints(const std::vector<glm::vec3>& keys) {
        float fraction = ((float)1/(float)6);
        mCtrlPoints = keys;
-       if (keys.size() < 4){
+       if (keys.size() < 5){
          glm::vec3 b00, b01, b02, b03;
          glm::vec3 b10, b11, b12, b13;
          b00 = mCtrlPoints[0];

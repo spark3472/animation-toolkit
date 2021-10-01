@@ -30,11 +30,29 @@ void CurveEditor::setup() {
 
 void CurveEditor::scene() {
   drawState();
+  setColor(vec3(1, 0, 0));
+  for (int i = 0; i < mSpline.getNumKeys(); i++){
+    drawSphere(mSpline.getKey(i), 10);
+  }
+  if (mSpline.getNumKeys() > 2){
+    vec3 temp = mSpline.getKey(0);
+    for (int i = 0; i < 100; i++){
+      float t = (float)i;
+      setColor(vec3(0,0,1));
+      vec3 position = mSpline.getValue(t/100);
+      for (int i = 0; i < mSpline.getNumControlPoints(); i++){
+        drawSphere(mSpline.getControlPoint(i), 10);
+      }
+      drawLine(temp, position);
+      temp = position;
+    }
+  }
+  
   // todo: your code here
 }
 
 void CurveEditor::addPoint(const vec3& p) {
-  //std::cout << "Add key: " << p << std::endl;
+  std::cout << "Add key: " << p << std::endl;
   mSpline.appendKey(mSpline.getNumKeys(), p);
 }
 

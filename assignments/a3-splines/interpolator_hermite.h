@@ -24,35 +24,34 @@ public:
         vec3 pprime1 = getControlPoint(segment+getNumControlPoints()/2);
         vec3 p2 = getControlPoint(segment+1);
         vec3 pprime2 = getControlPoint(segment+getNumControlPoints()/2 + 1);
-
         return p1*(1.0f-3.0f*u*u+2.0f*u*u*u) + pprime1*(u-2.0f*u*u+u*u*u) + pprime2*(-u*u+u*u*u) + p2 * (3.0f*u*u-2.0f*u*u*u);
-       // todo: your code here
+       //todo: your code here
        return glm::vec3(0);
     }
 
     virtual void computeControlPoints(const std::vector<glm::vec3>& keys) {
         int size = keys.size();
         mCtrlPoints = keys;
-
-
-        if (isClamped()){
-            MatrixXd A(size, size);
-            for (int i = 0; i < size; i++){
-                for (int j = 0; j < size; j++){
-                    A(i, j) = 0;
-                if (i == 0 && j == 0){
-                    A(i, j) = 1;
-                }else if (i == size-1 && j == size-1){
-                    A(i, j) = 1;
-                }else if ( j == i - 1){
-                    A(i, i-1) = 1;
-                }else if ( j == i){
-                    A(i, i) = 4;
-                }else if ( j == i+1){
-                    A(i, i+1) = 1; 
+        if(size >= 5){
+            if (isClamped()){
+                MatrixXd A(size, size);
+                for (int i = 0; i < size; i++){
+                    for (int j = 0; j < size; j++){
+                        A(i, j) = 0;
+                    if (i == 0 && j == 0){
+                        A(i, j) = 1;
+                    }else if (i == size-1 && j == size-1){
+                        A(i, j) = 1;
+                    }else if ( j == i - 1){
+                        A(i, i-1) = 1;
+                    }else if ( j == i){
+                        A(i, i) = 4;
+                    }else if ( j == i+1){
+                        A(i, i+1) = 1; 
+                    } 
+                    } 
                 }
-            }
-        }
+            
 
             vec3 points[size];
             for ( int i = 0; i < size; i++){
@@ -134,7 +133,10 @@ public:
             mCtrlPoints.push_back(vec3(pPrime(i, 0), pPrime(i, 1), pPrime(i, 2)));
             //std::cout << "slope " << i << " = " << pPrime(i,0 ) << " " << pPrime(i,1) << std::endl;
         }
-    }
+        }
+        }
+        
+        
         
        // todo: your code here
     }
@@ -149,5 +151,4 @@ private:
     bool mIsClamped = true;
     glm::vec3 mClampDir;
 };
-
 #endif
