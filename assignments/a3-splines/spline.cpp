@@ -2,6 +2,7 @@
 #include "spline.h"
 #include "math.h"
 #include "interpolator_linear.h"
+#include "interpolator_catmullrom.h"
 
 // global interpolator to use as default
 static InterpolatorLinear gDefaultInterpolator; 
@@ -101,6 +102,25 @@ glm::vec3 Spline::getValue(float t) const {
     mInterpolator->computeControlPoints(mKeys);
     mDirty = false;
   }
+  float duration = getDuration();
+  std::string type = getInterpolationType();
+  if (t < 0){
+    return mKeys[0];
+  }else if (t > duration){
+    return mKeys[getNumKeys() - 1];
+  }
+  InterpolatorLinear interp;
+  InterpolatorCatmullRom catmullrom;
+  if (type == "Linear" && getNumKeys() > 0){
+    interp.computeControlPoints(mKeys);
+    return interp.interpolate(0, t);
+  }
+  
+  if(type == "Catmull-Rom"){
+    catmullrom.computeControlPoints(mKeys);
+    return catmullrom.interpolate(1, 1);
+  }
+  
 
   // todo: your code here
   // compute the segment containing t
