@@ -32,7 +32,7 @@ public:
     virtual void computeControlPoints(const std::vector<glm::vec3>& keys) {
         int size = keys.size();
         mCtrlPoints = keys;
-        if(size >= 5){
+       // if(size >= 5){
             if (isClamped()){
                 MatrixXd A(size, size);
                 for (int i = 0; i < size; i++){
@@ -134,7 +134,7 @@ public:
             //std::cout << "slope " << i << " = " << pPrime(i,0 ) << " " << pPrime(i,1) << std::endl;
         }
         }
-        }
+        //}
         
         
         
