@@ -44,6 +44,7 @@ Vector3 Matrix3::toEulerAnglesXZY() const
       theta = atan2(XZY.m13, XZY.m11);
       alpha = atan2(XZY.m32, XZY.m22);
    }
+>>>>>>> 79dda28e86551859c3dceb4b11bf2eceed0c3aa4
    return Vector3(alpha, theta, beta);
 }
 
@@ -64,6 +65,7 @@ Vector3 Matrix3::toEulerAnglesYXZ() const
       beta = atan2(YXZ.m21, YXZ.m22);
       theta = atan2(YXZ.m13, YXZ.m33);
    }
+>>>>>>> 79dda28e86551859c3dceb4b11bf2eceed0c3aa4
    return Vector3(alpha, theta, beta);
 }
 
@@ -84,6 +86,7 @@ Vector3 Matrix3::toEulerAnglesYZX() const
       alpha = atan2(YZX.m23 * -1, YZX.m22);
       theta = atan2(YZX.m31 * -1, YZX.m11);
    }
+>>>>>>> 79dda28e86551859c3dceb4b11bf2eceed0c3aa4
    return Vector3(alpha, theta, beta);
 }
 
@@ -105,6 +108,7 @@ Vector3 Matrix3::toEulerAnglesZXY() const
       theta = atan2(ZXY.m31 * -1, ZXY.m33);
       beta = atan2(ZXY.m12 * -1, ZXY.m22);
    }
+>>>>>>> 79dda28e86551859c3dceb4b11bf2eceed0c3aa4
    return Vector3(alpha, theta, beta);
 }
 
