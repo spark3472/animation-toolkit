@@ -14,10 +14,14 @@ void Quaternion::toAxisAngle (Vector3& axis, double& angleRad) const
 {
 	
 	Quaternion q = *this;
-	angleRad = acos(q.mW) * 2;
+	if (acos(q.mW) < 0.01){
+		angleRad = 0;
+	}else{
+		angleRad = acos(q.mW) * 2;
+	}
 
 	if (isnan(q.mX/sin(angleRad/2))){
-		axis[0] = 0;
+		axis[0] = 0.01;
 	}else if (isinf(q.mX/sin(angleRad/2))){
 		axis[0] = 1;
 	}else{
@@ -25,7 +29,7 @@ void Quaternion::toAxisAngle (Vector3& axis, double& angleRad) const
 	}
 
 	if (isnan(q.mY/sin(angleRad/2))){
-		axis[1] = 0;
+		axis[1] = 0.01;
 	}else if (isinf(q.mY/sin(angleRad/2))){
 		axis[1] = 1;
 	}else{
@@ -33,7 +37,7 @@ void Quaternion::toAxisAngle (Vector3& axis, double& angleRad) const
 	}
 
 	if (isnan(q.mZ/sin(angleRad/2))){
-		axis[2] = 0;
+		axis[2] = 0.01;
 	}else if (isinf(q.mZ/sin(angleRad/2))){
 		axis[2] = 1;
 	}else{
@@ -74,15 +78,15 @@ Matrix3 Quaternion::toMatrix () const
 void Quaternion::fromMatrix(const Matrix3& rot)
 
 {
+	Quaternion q;
+
 	Vector3 v;
 	double angle;
-
 	rot.toAxisAngle(v, angle);
-
-	Quaternion q;
 	q.fromAxisAngle(v, angle);
 
 	*this = q;
+	
 
 }
 
