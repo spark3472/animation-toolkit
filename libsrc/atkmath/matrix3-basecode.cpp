@@ -267,13 +267,46 @@ void Matrix3::fromEulerAnglesZYX(const Vector3& angleRad)
 
 void Matrix3::toAxisAngle(Vector3& axis, double& angleRad) const
 {
+   Matrix3 m = *this;
+   angleRad = acos((m.m11 + m.m22 + m.m33 - 1)/2);
+
+   //angle = acos(( m00 + m11 + m22 - 1)/2)
+   axis[0] = (m.m32 - m.m23)/sqrt((m.m32 - m.m23)*2 + (m.m13 - m.m31)*2 + (m.m21 - m.m12)*2);
+   axis[1] = (m.m13 - m.m31)/sqrt((m.m32 - m.m23)*2 + (m.m13 - m.m31)*2 + (m.m21 - m.m12)*2);
+   axis[2] = (m.m21 - m.m12)/sqrt((m.m32 - m.m23)*2 + (m.m13 - m.m31)*2 + (m.m21 - m.m12)*2);
+
    // TODO
 }
 
 void Matrix3::fromAxisAngle(const Vector3& axis, double angleRad)
 {
    // TODO
-   *this = Identity;
+   double c = cos(angleRad);
+   double s = sin(angleRad);
+   double t = 1.0 - c;
+	
+   Matrix3 result;
+
+   result.m11 = c + axis[0] * axis[0] * t;
+   result.m22 = c + axis[1] * axis[1] * t;
+   result.m33 = c + axis[2] * axis[2] * t;
+
+
+   double tmp1 = axis[0] * axis[1] * t;
+   double tmp2 = axis[2]*s;
+   result.m21 = tmp1 + tmp2;
+   result.m12 = tmp1 - tmp2;
+    
+   tmp1 = axis[0]*axis[2]*t;
+   tmp2 = axis[1]*s;
+   result.m31 = tmp1 - tmp2;
+   result.m13 = tmp1 + tmp2;    
+    
+   tmp1 = axis[1]*axis[2]*t;
+   tmp2 = axis[0]*s;
+   result.m32 = tmp1 + tmp2;
+   result.m23 = tmp1 - tmp2;
+   *this = result;
 }
 
 }
