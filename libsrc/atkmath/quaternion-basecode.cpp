@@ -7,7 +7,21 @@ namespace atkmath {
 Quaternion Quaternion::Slerp(const Quaternion& q0, const Quaternion& q1, double t)
 {
 	// TODO
-	return Quaternion(1,0,0,0);
+	double angle = 0;
+	if (!isnan(acos(Dot(q0, q1))))
+	{
+		angle = acos(Dot(q0, q1));
+	}
+
+	Quaternion result;
+	double q0_top = sin(angle*(1-t));
+	double denom = sin(angle);
+
+	double q1_top = sin(angle*t);
+
+	result = (q0_top/denom)*q0 + (q1_top/denom)*q1;
+
+	return result;
 }
 
 void Quaternion::toAxisAngle (Vector3& axis, double& angleRad) const
