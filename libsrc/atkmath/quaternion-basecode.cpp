@@ -34,7 +34,7 @@ void Quaternion::toAxisAngle (Vector3& axis, double& angleRad) const
 		angleRad = acos(q.mW) * 2;
 	}
 
-	if (isnan(q.mX/sin(angleRad/2))){
+	if (sin(angleRad/2) == 0){
 		axis[0] = 0.01;
 	}else if (isinf(q.mX/sin(angleRad/2))){
 		axis[0] = 1;
@@ -42,7 +42,7 @@ void Quaternion::toAxisAngle (Vector3& axis, double& angleRad) const
 		axis[0] = q.mX/sin(angleRad/2);
 	}
 
-	if (isnan(q.mY/sin(angleRad/2))){
+	if (sin(angleRad/2) == 0){
 		axis[1] = 0.01;
 	}else if (isinf(q.mY/sin(angleRad/2))){
 		axis[1] = 1;
@@ -50,7 +50,7 @@ void Quaternion::toAxisAngle (Vector3& axis, double& angleRad) const
 		axis[1] = q.mY/sin(angleRad/2);
 	}
 
-	if (isnan(q.mZ/sin(angleRad/2))){
+	if (sin(angleRad/2) == 0){
 		axis[2] = 0.01;
 	}else if (isinf(q.mZ/sin(angleRad/2))){
 		axis[2] = 1;
