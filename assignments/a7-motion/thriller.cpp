@@ -22,11 +22,29 @@ public:
       vec3 color = vec3(1,0,0);
       float size = 1.0f;
       _devil = Devil(position, color, size);
+      for (int i = 0; i < 24; i++)
+      {
+         float si = (float)(rand()%4+1)/4;
+         vec3 pos;
+         vec3 col = vec3(rand()%10*0.05, rand()%10*0.05, rand()%10*0.05);
+         if (i%2 == 0)
+         {
+            pos = vec3(rand()%100-50, 0, rand()*100-50);
+         }else
+         {
+            pos = vec3(rand()%100-50, 0, rand()%100-50);
+         }
+         devils[i] = Devil(pos, col, si);
+      }
    }
 
    virtual void scene() {
       if (!_paused) _motion.update(_skeleton, elapsedTime());
-      _devil.draw(_skeleton, *this);
+      //_devil.draw(_skeleton, *this);
+      for (int i = 0; i < 24; i++)
+      {
+         devils[i].draw(_skeleton, *this);
+      }
    }
 
    virtual void keyUp(int key, int mods) {
@@ -37,6 +55,7 @@ protected:
    Motion _motion;
    Skeleton _skeleton;
    bool _paused = false;
+   Devil devils[24];
    Devil _devil;
 };
 

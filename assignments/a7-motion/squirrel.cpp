@@ -19,8 +19,9 @@ class Squirrel : public atkui::Framework {
   }
 
   virtual void setup() {
-    loadSprite("body", vec3(0.5, 0.5f, 0.0f), 0, "../models/squirrel/squirrel-body.png");
     loadSprite("tail", vec3(0.5, 0.1f, 0.0f), 0, "../models/squirrel/squirrel-tail.png");
+    loadSprite("body", vec3(0.5, 0.5f, 0.0f), 0, "../models/squirrel/squirrel-body.png");
+    
     loadSprite("arm1", vec3(0.5, 0.9f, 0.0f), 0.3, "../models/squirrel/squirrel-arm.png");
     loadSprite("arm2", vec3(0.5, 0.9f, 0.0f), 0, "../models/squirrel/squirrel-arm.png");
     loadSprite("leg1", vec3(0.5, 0.9f, 0.0f), 0, "../models/squirrel/squirrel-leg.png");
@@ -44,36 +45,59 @@ class Squirrel : public atkui::Framework {
       rotate(body.rotation, vec3(0,0,1));
 
       // todo tail
-      //push();
-        //drawSprite(tail);
-      //pop();
 
       // arm1
-      //push();
-        //drawSprite(arm1);
-      //pop();
+      push();
+        translate(-arm1.pivot);
+        rotate(arm1.rotation, vec3(0, 0, 1));
+        //translate(-body.pivot);
+        drawSprite(arm1);
+      pop();
+
 
       // leg2
-      //push();
-        //drawSprite(leg2);
-      //pop();
+      push();
+        translate(-leg2.pivot);
+        rotate(leg2.rotation, vec3(0, 0, 1));
+        translate(-body.pivot);
+        translate(vec3(20, 60, 0));
+        drawSprite(leg2);
+      pop();
 
 
       // body
       push();
       translate(-body.pivot);
+      rotate(body.rotation, vec3(0, 0, 1));
       drawSprite(body);
       pop();
-    
+
+      push();
+        translate(-tail.pivot);
+        rotate(tail.rotation, vec3(0, 0, 1));
+        translate(-body.pivot);
+        translate(vec3(0, 80, 0));
+        drawSprite(tail);
+      pop();
+
       // leg1
-      //push();
-        //drawSprite(leg1);
-      //pop();
+      push();
+        translate(-leg1.pivot);
+        rotate(leg1.rotation, vec3(0, 0, 1));
+        translate(-body.pivot);
+        translate(vec3(130, 60, 0));
+        drawSprite(leg1);
+      pop();
     
       // arm2
-      //push();
-        //drawSprite(arm2);
-      //pop();
+      push(); 
+      translate(-arm2.pivot);
+      rotate(arm2.rotation, vec3(0, 0, -1));
+      translate(-body.pivot);
+      translate(vec3(180, 180, 100));
+      drawSprite(arm2);
+      
+      pop();
     pop(); 
 
     renderer.fontColor(vec4(0,0,0,1));

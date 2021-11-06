@@ -4,6 +4,7 @@
 
 using namespace glm;
 using namespace atk;
+char const  *file;
 
 class MotionViewer : public atkui::Framework
 {
@@ -13,12 +14,17 @@ public:
 
    void setup() {
       BVHReader reader;
-      reader.load("../motions/Beta/jump.bvh", skeleton, motion);
+      p = 0;
+      reader.load(file, skeleton, motion);
       motion.update(skeleton, 0);
    }
 
    void scene() {
-      time += dt();
+      if (!paused)
+      {
+         time += dt() * timeScale;
+      }
+
       motion.update(skeleton, time);
 
       setColor(vec3(0,0,0.8));
@@ -37,12 +43,56 @@ public:
    }
 
    virtual void keyUp(int key, int mods) {
+      if (key == '0')
+      {
+         time = 0;
+      }
+
+      if (key == 'P')
+      {
+         if (p == 0)
+         {
+            paused = true;
+            p++;
+         }else
+         {
+            paused = false;
+            p--;
+         }
+      }
+
+      if (key == '.')
+      {
+         if (paused)
+         {
+
+         }
+      }
+
+      if (key == ',')
+      {
+         if (paused)
+         {
+
+         }
+      }
+
+      if (key == ']')
+      {
+         timeScale = 2.0f;
+      }
+
+      if (key == '[')
+      {
+         timeScale = 0.5f;
+      }
    }
+   
 
 private:
    Skeleton skeleton;
+   int p;
    Motion motion;
-
    float timeScale = 1.0f;
    int currentFrame = 0; 
    bool paused = false;
@@ -50,7 +100,16 @@ private:
 };
 
 
+
 int main(int argc, char** argv) {
    MotionViewer viewer;
+   if (argc == 1)
+   {
+      file = "../motions/Beta/jump.bvh";
+   }else
+   {
+      file = argv[1];
+   }
+
    viewer.run();
 }
