@@ -25,7 +25,7 @@ Make 12 warroks do the thriller dance.
 
 
 
-https://user-images.githubusercontent.com/55250326/140597197-db56fae2-3c97-475b-90c1-d7f381f17af4.mov
+https://user-images.githubusercontent.com/55250326/140597236-aef86693-28d1-4f00-a518-614a5120f098.mov
 
 
 <h2>Squirrel:</h2>
