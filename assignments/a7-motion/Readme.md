@@ -28,6 +28,17 @@ Make 12 warroks do the thriller dance.
 https://user-images.githubusercontent.com/55250326/140597236-aef86693-28d1-4f00-a518-614a5120f098.mov
 
 
+<h2>Butterfly:</h2>
+
+<h3>Description:</h3>
+Animating a butterfly using ellipsoids.
+
+
+
+https://user-images.githubusercontent.com/55250326/140597263-f93f837a-7885-43b1-ad08-e945c6c10844.mov
+
+
+
 <h2>Squirrel:</h2>
 
 <h3>Description:</h3>
