@@ -8,15 +8,6 @@ Practicing the motion functions.
 <img width="748" alt="Screen Shot 2021-11-05 at 11 51 48 PM" src="https://user-images.githubusercontent.com/55250326/140597134-86bf5da1-f7d1-45e3-948b-f78528cdc6aa.png">
 
 
-
-
-<h2>Stacking Boxes:</h2>
-<h3>Description:</h3>
-Practicing transforms.
-
-<img width="493" alt="Screen Shot 2021-10-31 at 11 08 28 PM" src="https://user-images.githubusercontent.com/55250326/139616396-a332f5cf-3785-4198-ad65-3106e3eb047c.png">
-
-
 <h2>Motion viewer:</h2>
 <h3>Description:</h3>
 Viewing the motion of the skeletion
