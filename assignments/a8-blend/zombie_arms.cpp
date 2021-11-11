@@ -35,7 +35,55 @@ public:
       Motion result;
       result.setFramerate(motion.getFramerate());
       // todo: your code here
-      result.appendKey(motion.getKey(0));
+      Transform Rji_left = leftArm->getLocal2Parent(); 
+      Rji_left = Rji_left.inverse();
+      quat Rji_l = Rji_left.r();
+
+      Transform Rji_right = rightArm->getLocal2Parent(); 
+      Rji_right = Rji_right.inverse();
+      quat Rji_r = Rji_right.r();
+
+      leftArm->setLocalRotation(leftLocalRot * Rji_l);
+      rightArm->setLocalRotation(rightLocalRot * Rji_r);
+      leftElbow->setLocalRotation(elbowLocalRot * Rji_l);
+      rightElbow->setLocalRotation(elbowLocalRot * Rji_r);
+
+      int LAid = 0;
+      int RAid = 0;
+      int LEid = 0;
+      int REid = 0;
+
+      for (int i = 0; i < _skeleton.getNumJoints(); i++)
+      {
+         if (_skeleton.getByID(i) == leftArm)
+         {
+            LAid = i;
+         }else if (_skeleton.getByID(i) == rightArm)
+         {
+            RAid = i;
+         }else if (_skeleton.getByID(i) == leftElbow)
+         {
+            LEid = i;
+         }else if (_skeleton.getByID(i) == rightElbow)
+         {
+            REid = i;
+         }
+      }
+
+      Pose pose = _skeleton.getPose();
+
+      for(int i = 0; i < motion.getNumKeys() - 1; i++)
+      {
+         Pose pose2 = motion.getKey(i);
+         for(int j = 0; j < _skeleton.getNumJoints(); j++)
+         {
+            if (j == LAid || j == RAid || j == LEid || j == REid)
+            {
+               pose2.jointRots[j] = pose.jointRots[j];
+            }
+         }
+         result.appendKey(pose2);
+      }
 
       return result;
    }
@@ -54,7 +102,49 @@ public:
       Motion result;
       result.setFramerate(motion.getFramerate());
       // todo: your code here
-      result.appendKey(motion.getKey(0));
+      leftArm->setLocalRotation(leftRot);
+      rightArm->setLocalRotation(rightRot);
+      leftElbow->setLocalRotation(elbowRot);
+      rightElbow->setLocalRotation(elbowRot);
+
+      int LAid = 0;
+      int RAid = 0;
+      int LEid = 0;
+      int REid = 0;
+
+      for (int i = 0; i < _skeleton.getNumJoints(); i++)
+      {
+         if (_skeleton.getByID(i) == leftArm)
+         {
+            LAid = i;
+         }else if (_skeleton.getByID(i) == rightArm)
+         {
+            RAid = i;
+         }else if (_skeleton.getByID(i) == leftElbow)
+         {
+            LEid = i;
+         }else if (_skeleton.getByID(i) == rightElbow)
+         {
+            REid = i;
+         }
+      }
+
+      Pose pose = _skeleton.getPose();
+
+      for(int i = 0; i < motion.getNumKeys() - 1; i++)
+      {
+         Pose pose2 = motion.getKey(i);
+         for(int j = 0; j < _skeleton.getNumJoints(); j++)
+         {
+            if (j == LAid || j == RAid || j == LEid || j == REid)
+            {
+               pose2.jointRots[j] = pose.jointRots[j];
+            }
+         }
+         result.appendKey(pose2);
+      }
+
+      
 
       return result;
    }

@@ -27,9 +27,38 @@ public:
    Motion spliceUpperBody(const Motion& lower, const Motion& upper, float alpha)
    {
       Motion result;
+       
       result.setFramerate(lower.getFramerate());
       // todo: your code here
-      result.appendKey(lower.getKey(0));
+
+      int id = 0;
+      for (int i = 0; i < _skeleton.getNumJoints(); i++)
+      {
+         if (_skeleton.getByID(i) == _skeleton.getByName("Beta:Spine1"))
+         {
+            id = i;
+         }
+      }
+      Joint* spine1 = _skeleton.getByName("Beta:Spine1");
+      int numChild = spine1->getNumChildren();
+      int numJoints = _skeleton.getNumJoints();
+      
+      
+      for(int i = 0; i < lower.getNumKeys() -1; i++)
+      {
+         Pose pose = upper.getKey(120+i);
+         Pose pose2 = lower.getKey(i);
+         Pose newpose = pose2;
+         for (int j = 0; j < numJoints; j++)
+         {
+            if( j >= 2 && j <= 55)
+            {
+               //newpose.jointRots[j] = pose.jointRots[j];
+               newpose.jointRots[j] = slerp(pose2.jointRots[j], pose.jointRots[j], alpha);
+            }
+         }
+         result.appendKey(newpose);
+      }
       return result;
    }
 
