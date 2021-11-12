@@ -40,23 +40,14 @@ public:
          Pose pose = motion.getKey(i);
          
          pose.rootPos = (pose.rootPos + pos) * rotation;
-         for(int j = 0; j < _skeleton.getNumJoints(); j++)
-         {
-            if (j >= 0 && j <= 6 )
-            {
-               pose.jointRots[j] = pose.jointRots[j] * rotation;
-            }
-         }
          
+         for(int j = 0; j <= 6; j++)
+         {
+            pose.jointRots[j] = pose.jointRots[j] * rotation;
+         }
 
          result.appendKey(pose);
       }
-      
-      // todo: your code here
-      //result = motion;
-      //result.appendKey(first);
-
-      //result.appendKey(pose);
       
       return result;
    }
