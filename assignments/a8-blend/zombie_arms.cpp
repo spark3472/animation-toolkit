@@ -35,6 +35,7 @@ public:
       Motion result;
       result.setFramerate(motion.getFramerate());
       // todo: your code here
+
       Transform Rji_left = leftArm->getLocal2Parent(); 
       Rji_left = Rji_left.inverse();
       quat Rji_l = Rji_left.r();
@@ -42,11 +43,14 @@ public:
       Transform Rji_right = rightArm->getLocal2Parent(); 
       Rji_right = Rji_right.inverse();
       quat Rji_r = Rji_right.r();
+      
+      quat R_offset_left = leftLocalRot * Rji_l;
+      quat R_offset_right = rightLocalRot * Rji_r;
 
-      leftArm->setLocalRotation(leftLocalRot * Rji_l);
-      rightArm->setLocalRotation(rightLocalRot * Rji_r);
-      leftElbow->setLocalRotation(elbowLocalRot * Rji_l);
-      rightElbow->setLocalRotation(elbowLocalRot * Rji_r);
+      leftArm->setLocalRotation(leftLocalRot * R_offset_left);
+      rightArm->setLocalRotation(rightLocalRot * R_offset_right);
+      leftElbow->setLocalRotation(elbowLocalRot);
+      rightElbow->setLocalRotation(elbowLocalRot);
 
       int LAid = 0;
       int RAid = 0;

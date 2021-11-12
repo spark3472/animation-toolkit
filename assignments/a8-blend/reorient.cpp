@@ -32,10 +32,31 @@ public:
    {
       Motion result;
       result.setFramerate(motion.getFramerate());
+      quat rotation = eulerAngleRO(XYZ, vec3(0, heading, 0));
+      
+      
+      for(int i = 0; i < motion.getNumKeys() - 1; i++)
+      {
+         Pose pose = motion.getKey(i);
+         
+         pose.rootPos = (pose.rootPos + pos) * rotation;
+         for(int j = 0; j < _skeleton.getNumJoints(); j++)
+         {
+            if (j >= 0 && j <= 6 )
+            {
+               pose.jointRots[j] = pose.jointRots[j] * rotation;
+            }
+         }
+         
 
+         result.appendKey(pose);
+      }
+      
       // todo: your code here
-      Pose pose = motion.getKey(0);
-      result.appendKey(pose);
+      //result = motion;
+      //result.appendKey(first);
+
+      //result.appendKey(pose);
       
       return result;
    }
