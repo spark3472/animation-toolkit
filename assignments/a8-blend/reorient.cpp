@@ -39,12 +39,11 @@ public:
       {
          Pose pose = motion.getKey(i);
          
-         pose.rootPos = (pose.rootPos + pos) * rotation;
-         
-         for(int j = 0; j <= 6; j++)
-         {
-            pose.jointRots[j] = pose.jointRots[j] * rotation;
-         }
+         pose.rootPos = rotation * pose.rootPos + pos;
+
+         pose.jointRots[0] = pose.jointRots[0] * rotation;
+
+      
 
          result.appendKey(pose);
       }
