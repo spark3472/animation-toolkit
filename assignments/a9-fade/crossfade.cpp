@@ -37,6 +37,49 @@ public:
     int start1 = motion1_.getNumKeys() - numBlendFrames;
     int start2 = 0;
 
+    blend_.setFramerate(motion1_.getFramerate());
+
+    for (int i = 0; i < start1; i++)
+    {
+      blend_.appendKey(motion1_.getKey(i));
+    }
+
+    Motion result;
+    Pose last_m1 = motion1_.getKey(motion1_.getNumKeys() - 1);
+    vec3 root = last_m1.rootPos;
+    quat rotation = last_m1.jointRots[0];
+    for(int i = 0; i < motion2_.getNumKeys() - 1; i++)
+      {
+         Pose pose = motion2_.getKey(i);
+         
+         pose.rootPos = pose.rootPos + root + vec3(0, -95, 0);
+         //pose.rootPos = pose.rootPos + root + vec3(0, -95, 0);
+         
+
+         pose.jointRots[0] = rotation;
+
+      
+
+         result.appendKey(pose);
+      }
+
+
+    for (int i = 0; i < numBlendFrames; i++)
+    {
+      //motion1(i+k)(1-a)+motion2(k)(a)
+      Pose pose1 = motion1_.getKey(start1 + i);
+      Pose pose2 = result.getKey(i);
+      Pose newPose = newPose.Lerp(pose1, pose2, i/(numBlendFrames-1));
+      blend_.appendKey(newPose);
+    }
+
+    for (int i = numBlendFrames; i < result.getNumKeys(); i++)
+    {
+      blend_.appendKey(result.getKey(i));
+    }
+  
+
+
     // TODO: Your code here
   }
 
@@ -48,7 +91,7 @@ public:
 
   void scene()
   {
-    blend_.update(skeleton_, elapsedTime());
+    blend_.update(skeleton_, elapsedTime()/4);
     drawer_.draw(skeleton_, *this);
   }
 
@@ -71,6 +114,8 @@ int main(int argc, char **argv)
 {
   std::string motion1 = "../motions/Beta/walking.bvh";
   std::string motion2 = "../motions/Beta/jump.bvh";
+  
+
   int numFrames = 10;
 
   try

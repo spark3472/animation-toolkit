@@ -44,7 +44,21 @@ public:
     _walk.update(_skeleton, elapsedTime());
 
     // TODO: Your code here
+    for (int i = 0; i < _walk.getNumKeys(); i++)
+    {
+      Pose pin = _walk.getKey(i);
+      pin.rootPos = vec3(0, 100, 0);
+      _walk.editKey(i, pin);
+    }
 
+    quat rotation = eulerAngleRO(XYZ, vec3(0, _heading, 0));
+    for (int i = 0; i < _walk.getNumKeys(); i++)
+    {
+      Pose rotate_body = _walk.getKey(i);
+      //rotate_body.rootPos = rotate_body.rootPos * rotation;
+      rotate_body.jointRots[0] = rotate_body.jointRots[0] * rotation;
+      _walk.editKey(i, rotate_body);
+    }
     // TODO: Override the default camera to follow the character
     // lookAt(pos, look, vec3(0, 1, 0));
 
