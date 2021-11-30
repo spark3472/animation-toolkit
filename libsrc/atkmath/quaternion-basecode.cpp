@@ -8,7 +8,7 @@ Quaternion Quaternion::Slerp(const Quaternion& q0, const Quaternion& q1, double 
 {
 	// TODO
 	double angle = 0;
-	if (!isnan(acos(Dot(q0, q1))))
+	if (Dot(q0, q1) > 1 || Dot(q0, q1) < -1)
 	{
 		angle = acos(Dot(q0, q1));
 	}
