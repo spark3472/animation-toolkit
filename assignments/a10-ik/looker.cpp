@@ -29,6 +29,10 @@ public:
    }
 
    void lookAtTarget(Joint* head, const vec3& target) {
+      
+      double phi = 0;
+      quat rotation = eulerAngleRO(XYZ, vec3(0, 0, phi));
+      head->setLocalRotation(rotation);
       // TODO: Your code here
       head->fk();
    }

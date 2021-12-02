@@ -48,6 +48,9 @@ public:
     Pose last_m1 = motion1_.getKey(motion1_.getNumKeys() - 1);
     vec3 root = last_m1.rootPos;
     quat rotation = last_m1.jointRots[0];
+
+    
+
     for(int i = 0; i < motion2_.getNumKeys() - 1; i++)
       {
          Pose pose = motion2_.getKey(i);
