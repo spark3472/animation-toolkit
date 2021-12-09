@@ -28,10 +28,15 @@ https://user-images.githubusercontent.com/55250326/144647161-a75fecaa-770a-4fcc-
 <h2>Two-link:</h2>
 
 <h3>Description:</h3>
-To implement later.
+Rotating joints
 
 
 
+
+
+
+
+https://user-images.githubusercontent.com/55250326/145493715-ded9ccb5-210a-4d5c-9fc3-0210fca25f1a.mov
 
 
 <h2>Unique:</h2>
